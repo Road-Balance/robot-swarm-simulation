@@ -1,14 +1,16 @@
 import math
 
 class Robot:
-    def __init__(self, x=0, y=0, dir=0):
+    def __init__(self, x=0, y=0, dir=0,
+            speed_linear = 0.1, speed_angular = 5,
+            range = 15, fov = 45): #Robot Parameters
         self.x = x
         self.y = y
         self.dir = dir
-        self.speed_linear = 0.1
-        self.speed_angular = 5
-        self.range = 15
-        self.fov = 45
+        self.speed_linear = speed_linear
+        self.speed_angular = speed_angular
+        self.range = range
+        self.fov = fov
 
     #move each robots at given speed
     def move(self, v, w):
@@ -49,23 +51,25 @@ def move_robots(robots):
         #main logic
         v, w = (0, 0)
         if not dets:
-            w=1
+            v, w = (0, 1) #flag for spin
         else:
             avg_dist = sum(d['dist'] for d in dets)/float(len(dets))
             avg_angle = sum(d['angle'] for d in dets)/float(len(dets))
 
             # simulation parameters
-            if avg_dist<2:
-                v=0
+            if avg_dist<1.5:
+                v=0.1
             elif avg_dist<5:
                 v=0.5
             else:               
                 v=1
             if avg_angle>25:  
                 w=+1
-            elif avg_angle<25:  
+            '''
+            #do not get triggered right.
+            elif avg_angle<25: 
                 w=-1
-
+            '''
         m.append(dict(v=v, w=w))
 
     for i in range(len(robots)):

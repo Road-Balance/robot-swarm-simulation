@@ -1,5 +1,4 @@
 import math
-import keyboard
 
 from random import uniform
 import matplotlib.pyplot as plt
@@ -14,7 +13,7 @@ def draw_robot(ax, robot):
     dir_rad = math.radians(robot.dir)
     ax.plot((robot.x, robot.x+math.cos(dir_rad)), (robot.y, robot.y+math.sin(dir_rad)), color='r')
 
-def animate(i, robots):
+def animate(i, ax, robots):
     move_robots(robots)
 
     ax.cla()
@@ -24,11 +23,19 @@ def animate(i, robots):
         draw_robot(ax, robot)
 
 if __name__ == "__main__":
+
+    #init robots
+    RB_NUM = 40
+    robots = [Robot(uniform(3,17),uniform(3,17),uniform(0,360)) for i in range(RB_NUM)]
+
+    #init drawer
     fig, ax = plt.subplots(figsize=(9, 9))
-    robots = [Robot(uniform(3,17),uniform(3,17),uniform(0,360)) for i in range(40)]
+    ani = FuncAnimation(fig, lambda i : animate(i, ax, robots), interval=100)
 
-
-    ani = FuncAnimation(fig, lambda i : animate(i, robots), interval=100)
+    '''
+    #export to gif
+    ani.save('./files/animation.gif', writer='imagemagick', dpi=80, fps=20)
+    print("saved gif")
+    '''
 
     plt.show()
-
