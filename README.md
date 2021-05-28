@@ -61,9 +61,8 @@ Control Variables
 
 - Workaround: Swap to trigger only in the same direction as the swivel direction (default spin direction) of the cluster.
 - Ensure swarms are formed accurately.
-- Minor Code Cleanup
 
-# Fianal Results
+# Final Results
 
 <img  src="./images/animation_forming.gif" width="250">  <img  src="./images/animation_stable.gif" width="250"> 
 
