@@ -65,8 +65,7 @@ Control Variables
 
 # Fianal Results
 
-<img  src="./images/animation_forming.gif" width="250"> 
-<img  src="./images/animation_stable.gif" width="250"> 
+<img  src="./images/animation_forming.gif" width="250">  <img  src="./images/animation_stable.gif" width="250"> 
 
 ## Author
 
