@@ -2,34 +2,36 @@
 
 ## Environment
 
-- Dependency: Python3, Matplotlib, imagemagick (for gif capture)
+- Dependency: `Python3`, `Matplotlib`, `imagemagick` (for gif capture)
 - [https://github.com/Road-Balance/robot-swarm-simulation](https://github.com/Road-Balance/robot-swarm-simulation)
 
 ## Behavioral Structure
 
 ### Robot Modeling
 
-- Based on the Differential Drive driving model.
+<img  src="./images/Untitled.png" width="250"> 
+
+- Based on the **Differential Drive driving model**.
 - Red straight line is the direction the robot is currently pointing at
-- Detection angle is 45 degrees forward and left, with a total angle of 90 degrees
+- Detection angle is **45** degrees forward and left, with a total angle of **90** degrees
 - Detection length, angle can be tuned to variables.
 - Rotate in place if no robot is detected.
 - Start position, angle is random.
 
-<img src="./images/Untitled.png" width="400"> 
-
 
 ### Search
 
-Two-dimensional loop
+**Two-dimensional loop**
 
 - Each robot calculates its distance, angle (between angles) from all other robots based on itself (Lidar modeling)
 - Record all distance and side angle information of robots within detection length & angle
 - Calculate the mean of length and angle
-- if (average angle > Trigger) → Rotate in that direction
-- if (average distance < proximity distance) → Speed reduction
+- `if (average angle > Trigger)` → Rotate in that direction
+- `if (average distance < proximity distance)` → Speed reduction
 
-Control Variable 
+Control Variables
+
+<img  src="./images/Untitled%201.png" width="250"> 
 
 - Linear Speed
 - Angular Speed
@@ -38,21 +40,20 @@ Control Variable
 - Trigger Angle
 - Trigger Range
 
-![images/Untitled%201.png](images/Untitled%201.png)
-
 ### Execution Results
 
-![images/Untitled%202.png](images/Untitled%202.png)
+<img  src="./images/Untitled%202.png" width="250"> 
 
-- Robots that cannot cluster  vibrate in the center.
+- Robots that cannot cluster vibrate in the center.
 - Robots in the cluster move and circle.
 
-![images/Untitled%203.png](images/Untitled%203.png)
+<img  src="./images/Untitled%203.png" width="250"> 
+
 
 - If the Trigger Angle value is small, rotation occurs frequently and clusters are formed separately.
 - Then Stop
 
-![images/Untitled%204.png](images/Untitled%204.png)
+<img  src="./images/Untitled%204.png" width="250"> 
 
 - If the Trigger Angle is large and the angular velocity is slow, the swarm is large and diverges
 
@@ -62,6 +63,11 @@ Control Variable
 - Ensure swarms are formed accurately.
 - Minor Code Cleanup
 
-![images/animation_forming.gif](images/animation_forming.gif)
+# Fianal Results
 
-![images/animation_stable.gif](images/animation_stable.gif)
+<img  src="./images/animation_forming.gif" width="250"> 
+<img  src="./images/animation_stable.gif" width="250"> 
+
+## Author
+
+* [Sanghyeon Son](https://github.com/ssh199898)
