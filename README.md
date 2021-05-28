@@ -16,7 +16,8 @@
 - Rotate in place if no robot is detected.
 - Start position, angle is random.
 
-![images/Untitled.png](images/Untitled.png)
+<img src="./images/Untitled.png" width="400"> 
+
 
 ### Search
 
